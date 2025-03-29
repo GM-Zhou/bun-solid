@@ -1,13 +1,13 @@
 import { Route, Router } from '@solidjs/router';
-
-import AvatarUpload from './pages/avatar';
-import Home from './pages/home';
+import { lazy } from 'solid-js';
 
 export default function Routes() {
   return (
     <Router>
-      <Route path='/' component={Home} />
-      <Route path='/avatar' component={AvatarUpload} />
+      <Route path='/' component={lazy(() => import('@/components/layouts/main'))}>
+        <Route path='/' component={lazy(() => import('@/pages/home'))} />
+        <Route path='/avatar' component={lazy(() => import('@/pages/avatar'))} />
+      </Route>
     </Router>
   );
 }

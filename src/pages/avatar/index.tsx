@@ -1,6 +1,11 @@
-import { createSignal, onCleanup } from 'solid-js';
+import type { RouteSectionProps } from '@solidjs/router';
+import { createEffect, createSignal, onCleanup } from 'solid-js';
 
-export default function AvatarUpload() {
+const AvatarUpload = (props: RouteSectionProps) => {
+  createEffect(() => {
+    console.log('location :>> ', { ...props.location.query });
+  });
+
   const [preview, setPreview] = createSignal<string>();
   const [dominantColor, setDominantColor] = createSignal<string>('#f0f0f0');
 
@@ -84,4 +89,6 @@ export default function AvatarUpload() {
       </label>
     </div>
   );
-}
+};
+
+export default AvatarUpload;

@@ -4,9 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview"
+    "dev": "bun --bun run vite",
+    "build": "tsc -b && bun --bun run vite build",
+    "preview": "bun --bun run vite preview"
   },
   "dependencies": {
     "@solidjs/router": "^0.15.3",

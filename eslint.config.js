@@ -1,12 +1,14 @@
-import { defineConfig } from 'eslint/config';
-import globals from 'globals';
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
-import solid from 'eslint-plugin-solid/configs/recommended';
+import { defineConfig } from 'eslint/config';
 import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import solid from 'eslint-plugin-solid/configs/recommended';
+import globals from 'globals';
+import tseslint from 'typescript-eslint';
 
 export default defineConfig([
-  { files: ['**/*.{js,mjs,cjs,ts}'] },
+  {
+    ignores: ['dist/**', 'build/**', 'node_modules/**']
+  },
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
     languageOptions: { globals: { ...globals.browser, ...globals.node } }
@@ -23,11 +25,7 @@ export default defineConfig([
     },
     rules: {
       'simple-import-sort/imports': 'error',
-      'simple-import-sort/exports': 'error'
-    }
-  },
-  {
-    rules: {
+      'simple-import-sort/exports': 'error',
       'no-console': 'warn',
       'prefer-const': 'warn',
       // 优先使用 interface 而不是 type

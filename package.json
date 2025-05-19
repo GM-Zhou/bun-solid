@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "bun --bun run vite",
-    "build": "tsc -b && bun --bun run vite build",
-    "preview": "bun --bun run vite preview"
+    "build": "bun lint && tsc -b && bun --bun run vite build",
+    "preview": "bun --bun run vite preview",
+    "lint": "bun --bun eslint . --ext .ts,.tsx"
   },
   "dependencies": {
     "@solidjs/router": "^0.15.3",

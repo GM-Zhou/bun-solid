@@ -1,12 +1,12 @@
 import type { RouteSectionProps } from '@solidjs/router';
 
 const User = (props: RouteSectionProps<{ id: string }>) => {
-  const { id } = props.params;
+  const id = () => props.params.id;
   return (
     <div class='flex-1'>
       <h1>用户页面</h1>
       <p>这是用户页面</p>
-      <p>User ID: {id}</p>
+      <p>User ID: {id()}</p>
       <p>Additional information can be displayed here.</p>
       <p>More details about the user can be added here.</p>
       <div class='text-justify'>
